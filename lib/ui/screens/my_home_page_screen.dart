@@ -9,6 +9,7 @@ import 'package:mobyte_first_example/widgets/text.dart';
 import '../../const/colors.dart';
 import '../../widgets/card.dart';
 import '../../widgets/tile_widget.dart';
+import '../../widgets/url_text.dart';
 
 class MyHomePageScreen extends StatefulWidget {
   const MyHomePageScreen({super.key});
@@ -47,7 +48,9 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
           SizedBox(
             height: 8.h,
           ),
-          MapWidget()
+          const MapWidget(),
+          SizedBox(height: 12.h,),
+          const UrlLauncherText()
         ],
       ),
     ));
