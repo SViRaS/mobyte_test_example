@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/services/app_lat_long.dart';
@@ -30,6 +32,9 @@ class _MapWidgetState extends State<MapWidget> {
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.brownColor, width: 1.0)),
       child: YandexMap(
+        gestureRecognizers: {
+          Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer())
+        },
         mapObjects: [
           PlacemarkMapObject(
               icon: PlacemarkIcon.single(PlacemarkIconStyle(

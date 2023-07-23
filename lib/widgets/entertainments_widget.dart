@@ -41,7 +41,7 @@ class EentertainmentsWidgetState extends State<EntertainmentsWidget> {
     return Column(
       children: [
         SizedBox(
-            height: _active ? 280.h : 135.h,
+            height: _active ? 280.h : 140.h,
             child: GridView.builder(
               itemCount: entertainmentsWidgetList.length,
               physics: const NeverScrollableScrollPhysics(),
