@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/const/colors.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +13,7 @@ class UrlLauncherText extends StatefulWidget {
 class _UrlTextState extends State<UrlLauncherText> {
   
   _launchURL() async {
-   final Uri url = Uri.parse('https://mobyte.dev');
+   final Uri url = Uri.parse('https://cyberxcommunity.ru');
    if (!await launchUrl(url)) {
         throw Exception('Could not launch $url');
     }

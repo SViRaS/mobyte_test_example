@@ -1,8 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/services/app_lat_long.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
@@ -28,9 +25,16 @@ class _MapWidgetState extends State<MapWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 343.w,
       height: 246.h,
       child: YandexMap(
+        mapObjects: [
+          PlacemarkMapObject(
+              icon: PlacemarkIcon.single(PlacemarkIconStyle(
+                  image: BitmapDescriptor.fromAssetImage(
+                      'assets/images/location.png',), scale: 0.25)),
+              mapId: const MapObjectId('place'),
+              point: const Point(latitude: 56.833868, longitude: 60.635324)),
+        ],
         onMapCreated: (controller) {
           mapControllerCompleter.complete(controller);
         },
@@ -38,6 +42,7 @@ class _MapWidgetState extends State<MapWidget> {
     );
   }
 }
+
 
 Future<void> _initPermission() async {
   if (!await LocationService().checkPermission()) {

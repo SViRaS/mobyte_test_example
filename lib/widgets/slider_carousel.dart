@@ -78,13 +78,15 @@ class _SliderCarouselState extends State<SliderCarousel> {
         ),
            Padding(
              padding: EdgeInsets.only(left: 16.w, top: 16.h),
-             child: Text('25 августа\n2023', style: TextStyle(
-                     fontFamily: 'Jost',
-                     height: 1.h,
-                     color: AppColors.whiteColor,
-                     fontWeight: FontWeight.w700,
-                     fontSize: 24.sp,
-                   ),),
+             child: FittedBox(
+               child: Text('25 августа\n2023', style: TextStyle(
+                       fontFamily: 'Jost',
+                       height: 1,
+                       color: AppColors.whiteColor,
+                       fontWeight: FontWeight.w700,
+                       fontSize: 24.sp,
+                     ),),
+             ),
            ),
       ],
     );
