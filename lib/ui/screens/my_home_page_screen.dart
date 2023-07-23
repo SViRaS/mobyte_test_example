@@ -4,6 +4,7 @@ import 'package:mobyte_first_example/widgets/buttons.dart';
 import 'package:mobyte_first_example/widgets/map.dart';
 import 'package:mobyte_first_example/widgets/slider_carousel.dart';
 import 'package:mobyte_first_example/widgets/text.dart';
+import '../../widgets/entertainments_widget.dart';
 import '../../widgets/menu_widget.dart';
 import '../../widgets/url_text.dart';
 
@@ -41,11 +42,18 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                   text: 'Меню',
                 ),
 
-                const MenuList(),
-                SizedBox(height: 32.h),
+                const MenuWidget(),
+                SizedBox(height: 24.h),
                  const CustomText(
                   text: 'Развлечения',
                 ),
+                 const EntertainmentsWidget(),
+               
+                SizedBox(height: 16.h,),
+                 const CustomText(
+                  text: 'Место',
+                ),
+                SizedBox(height: 8.h,),
                 const MapWidget(),
                 SizedBox(height: 4.h,),
                 const MapText(),
@@ -57,7 +65,8 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                 
               ],
             ),
-          )
+          ),
+          
         ],
       ),
     ));

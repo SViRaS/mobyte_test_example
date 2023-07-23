@@ -7,4 +7,8 @@ class AppImages {
   static const seafood = 'assets/images/seafood.png';
   static const fresh_fruits = 'assets/images/fresh_food.png';
   static const lemonades = 'assets/images/author_lemonade.png';
+  
+  static const dice = 'assets/images/dice.png';
+  static const swimming_pool = 'assets/images/swimming_pool.png';
+  static const chess = 'assets/images/chess.webp';
 }
