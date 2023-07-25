@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mobyte_first_example/const/images_name.dart';
@@ -41,7 +39,7 @@ class EentertainmentsWidgetState extends State<EntertainmentsWidget> {
     return Column(
       children: [
         SizedBox(
-            height: _active ? 280.h : 140.h,
+            height: _active ? 250.h : 125.h,
             child: GridView.builder(
               itemCount: entertainmentsWidgetList.length,
               physics: const NeverScrollableScrollPhysics(),

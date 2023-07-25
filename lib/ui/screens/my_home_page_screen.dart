@@ -19,56 +19,59 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-          const SliderCarousel(),
-          SizedBox(height: 16.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              children: [
-                const TextWidget(),
-                SizedBox(height: 16.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    OrangeButton(text: 'Список гостей'),
-                    OrangeButton(text: 'Вишлист'),
-                  ],
-                ),
-                SizedBox(height: 32.h),
-                const CustomText(
-                  text: 'Меню',
-                ),
-
-                const MenuWidget(),
-                SizedBox(height: 24.h),
-                 const CustomText(
-                  text: 'Развлечения',
-                ),
-                 const EntertainmentsWidget(),
-               
-                SizedBox(height: 16.h,),
-                 const CustomText(
-                  text: 'Место',
-                ),
-                SizedBox(height: 8.h,),
-                const MapWidget(),
-                SizedBox(height: 4.h,),
-                const MapText(),
-                SizedBox(
-                  height: 12.h,
-                ),
-                const UrlLauncherText(),
-                SizedBox(height: 10.h,),
-                
-              ],
+        body: SafeArea(
+          child: SingleChildScrollView(
+              child: Column(
+          children: [
+            const SliderCarousel(),
+            SizedBox(height: 16.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                children: [
+                  const TextWidget(),
+                  SizedBox(height: 16.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      OrangeButton(text: 'Список гостей', nameRoute: '/list_guest',),
+                      OrangeButton(text: 'Вишлист', ),
+                    ],
+                  ),
+                  SizedBox(height: 32.h),
+                  const CustomText(
+                    text: 'Меню',
+                  ),
+          SizedBox(height: 16.h,),
+                  const MenuWidget(),
+                  SizedBox(height: 24.h),
+                   const CustomText(
+                    text: 'Развлечения',
+                  ),
+                  SizedBox(height: 16.h,),
+                   const EntertainmentsWidget(),
+                 
+                  SizedBox(height: 16.h,),
+                   const CustomText(
+                    text: 'Место',
+                  ),
+                  SizedBox(height: 8.h,),
+                  const MapWidget(),
+                  SizedBox(height: 4.h,),
+                  const MapText(),
+                  SizedBox(
+                    height: 12.h,
+                  ),
+                  const UrlLauncherText(),
+                  SizedBox(height: 10.h,),
+                  
+                ],
+              ),
             ),
-          ),
-          
-        ],
-      ),
-    ));
+            
+          ],
+              ),
+            ),
+        ));
   }
 }

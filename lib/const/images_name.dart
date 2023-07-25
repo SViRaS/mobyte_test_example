@@ -10,5 +10,7 @@ class AppImages {
   
   static const dice = 'assets/images/dice.png';
   static const swimming_pool = 'assets/images/swimming_pool.png';
-  static const chess = 'assets/images/chess.webp';
+
+  static const noneAvatar = 'assets/images/none_avatar.png';
+  static const mariaAvatar = 'assets/images/maria_avatar.png';
 }

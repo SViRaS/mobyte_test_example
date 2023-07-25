@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:mobyte_first_example/const/colors.dart';
+import 'package:mobyte_first_example/const/images_name.dart';
+import 'package:mobyte_first_example/widgets/buttons.dart';
+import 'package:mobyte_first_example/widgets/guest_widget.dart';
+
+class ListGuestScreen extends StatelessWidget {
+  const ListGuestScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.whiteColor,
+       leading: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/my_home_page');
+        },
+        child: SvgPicture.asset('assets/icons/arrow_left.svg',fit: BoxFit.scaleDown,)),
+       title: Text('Список гостей', style: TextStyle(fontSize: 20.sp, fontFamily: 'Jost', fontWeight: FontWeight.w500, color: AppColors.blackColor),),
+       centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(children: [
+          SizedBox(height: 24.h,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+            Text('2 гостя', style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.brownColor),),
+            Text('По имени ▼', style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.semiBlackColor, decoration: TextDecoration.underline),),
+          ],),
+          SizedBox(height: 24.h,),
+          const GuestWidget(avatar: AppImages.noneAvatar, name: 'Иван Иванов', years: '19 лет', activity: 'Студент',),
+          SizedBox(height: 16.h,),
+          const GuestWidget(avatar: AppImages.mariaAvatar, name: 'Марья Морская', years: '23 года', activity: 'Дизайнер',),
+          const Spacer(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 24.h,),
+            child: const Align(
+              alignment: Alignment.centerRight,
+              child: GreenButton(),
+            ),
+          )
+        ],),
+      ),
+    );
+  }
+}

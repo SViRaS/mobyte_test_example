@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class EntertainmentsItem {
   final String title;
   final String subTitle;

@@ -28,7 +28,7 @@ class _MenuListState extends State<MenuWidget> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: SizedBox(
-            height: _active ? 530.h : 200.h,
+            height: _active ? 520.h : 170.h,
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

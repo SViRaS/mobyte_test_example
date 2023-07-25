@@ -46,7 +46,12 @@ class _MapWidgetState extends State<MapWidget> {
               point: const Point(latitude: 56.833868, longitude: 60.635324)),
         ],
         onMapCreated: (controller) {
-          mapControllerCompleter.complete(controller);
+          // mapControllerCompleter.complete(controller);
+          if (!mapControllerCompleter.isCompleted) {
+            mapControllerCompleter.complete(controller);
+          } else {
+            
+          }
         },
       ),
     );
