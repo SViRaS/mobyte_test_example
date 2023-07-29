@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_first_example/const/styles.dart';
 import '../const/colors.dart';
 import '../const/images_name.dart';
 import '../models/menu_item.dart';
@@ -52,14 +53,7 @@ class _MenuListState extends State<MenuWidget> {
                     SizedBox(
                       height: 22.h,
                       child: FittedBox(
-                        child: Text(
-                          item.title,
-                          style: TextStyle(
-                              fontFamily: 'Jost',
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14.sp,
-                              color: AppColors.brownColor),
-                        ),
+                        child: Text(item.title, style: AppStyles().mealStyle),
                       ),
                     )
                   ],
@@ -69,16 +63,8 @@ class _MenuListState extends State<MenuWidget> {
           ),
         ),
         TextButton(
-          child: Text(
-            _active ? 'Свернуть ▲' : 'Развернуть ▼',
-            style: TextStyle(
-              decoration: TextDecoration.underline,
-              fontFamily: 'Jost',
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-              color: AppColors.blackColor,
-            ),
-          ),
+          child: Text(_active ? 'Свернуть ▲' : 'Развернуть ▼',
+              style: AppStyles().underlineText),
           onPressed: () {
             setState(() {
               _active = !_active;

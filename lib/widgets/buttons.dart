@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../const/colors.dart';
+import '../const/styles.dart';
 
 class OrangeButton extends StatelessWidget {
   final String text;
@@ -28,11 +29,7 @@ class OrangeButton extends StatelessWidget {
         child: Center(
             child: Text(
           text,
-          style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontFamily: 'Jost',
-              fontSize: 16.sp,
-              color: AppColors.whiteColor),
+          style: AppStyles().buttonTextStyle
         )),
       ),
     );

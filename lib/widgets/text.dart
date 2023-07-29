@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobyte_first_example/const/styles.dart';
 
 import '../const/colors.dart';
 
@@ -11,12 +12,7 @@ class TextWidget extends StatelessWidget {
     return Center(
       child: Text(
         'Приглашаю своих дорогих друзей отметить мой день\nрождения в замечательном месте с множеством\nразвлечений, вкусных блюд и хорошим\nнастроением!',
-        style: TextStyle(
-            fontFamily: 'Jost',
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp,
-            height: 1.2,
-            color: AppColors.semiBlackColor),
+        style: AppStyles().titleStyle,
         softWrap: false,
         maxLines: 4,
       ),
@@ -35,11 +31,7 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(
-          fontFamily: 'YesevaOne',
-          fontWeight: FontWeight.w400,
-          fontSize: 24.sp,
-          color: AppColors.blackColor),
+      style: AppStyles().mainTextStyle
     );
   }
 }
@@ -53,11 +45,7 @@ class MapText extends StatelessWidget {
     return Center(
       child: Text(
         'Центральная ул., 84, хутор Седых',
-        style: TextStyle(
-            fontFamily: 'Jost',
-            fontWeight: FontWeight.w400,
-            fontSize: 14.sp,
-            color: AppColors.brownColor),
+        style: AppStyles().placeStyle
       ),
     );
   }

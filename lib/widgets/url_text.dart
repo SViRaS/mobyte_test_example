@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/const/colors.dart';
+import 'package:mobyte_first_example/const/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UrlLauncherText extends StatefulWidget {
@@ -26,12 +27,7 @@ class _UrlTextState extends State<UrlLauncherText> {
           onTap: _launchURL,
             child: Text(
       'Перейти на сайт места',
-      style: TextStyle(
-          fontSize: 14.sp,
-          decoration: TextDecoration.underline,
-          fontFamily: 'Jost',
-          fontWeight: FontWeight.w400,
-          color: AppColors.semiBlackColor),
+      style: AppStyles().underlineText
     )));
   }
 }
