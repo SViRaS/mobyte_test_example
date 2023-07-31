@@ -30,15 +30,9 @@ class GuestWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            SizedBox(
-              height: 20.h,
-              child: FittedBox(child: Text(name, style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w500, color: AppColors.semiBlackColor),))),
-            SizedBox(
-              height: 16.h,
-              child: FittedBox(child: Text(years, style: TextStyle(fontSize: 12.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.brownColor),))),
-            SizedBox(
-              height: 20.h,
-              child: FittedBox(child: Text(activity, style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.brownColor),))),
+            Text(name, style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w500, color: AppColors.semiBlackColor),),
+            Text(years, style: TextStyle(fontSize: 12.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.brownColor),),
+            Text(activity, style: TextStyle(fontSize: 14.sp, fontFamily: 'Jost', fontWeight: FontWeight.w400, color: AppColors.brownColor),),
             
           ],),
       ],

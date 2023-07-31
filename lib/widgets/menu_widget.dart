@@ -28,38 +28,36 @@ class _MenuListState extends State<MenuWidget> {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: SizedBox(
-            height: _active ? 520.h : 170.h,
-            child: GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisExtent: 162.h,
-                mainAxisSpacing: 12.h,
-                crossAxisSpacing: 32.w,
-                crossAxisCount: 2,
-              ),
-              itemCount: _active ? menuWidgetList.length : 2,
-              itemBuilder: (context, index) {
-                final item = menuWidgetList[index];
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: _active ? menuWidgetList.length : 2,            
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              mainAxisSpacing: 16.h,
+              crossAxisSpacing: 32.w,
+              childAspectRatio: 140/ 154,
+              crossAxisCount: 2,
+            ),
+            itemBuilder: (context, index) {
+              var item = menuWidgetList[index];
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 140.h,
+                    width: 140.w,
+                    child: Image.asset(
                       item.imageName,
-                      width: 140.w,
-                      height: 140.h,
                       fit: BoxFit.fill,
                     ),
-                    SizedBox(
-                      height: 22.h,
-                      child: FittedBox(
-                        child: Text(item.title, style: AppStyles().mealStyle),
-                      ),
-                    )
-                  ],
-                );
-              },
-            ),
+                  ),
+                  Text(
+                    item.title,
+                    style: AppStyles().mealStyle,
+                  )
+                ],
+              );
+            },
           ),
         ),
         TextButton(

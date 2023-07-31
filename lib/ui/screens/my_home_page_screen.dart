@@ -42,8 +42,9 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                   const CustomText(
                     text: 'Меню',
                   ),
-          SizedBox(height: 16.h,),
+                   SizedBox(height: 16.h,),
                   const MenuWidget(),
+                  
                   SizedBox(height: 24.h),
                    const CustomText(
                     text: 'Развлечения',
@@ -72,6 +73,7 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
           ],
               ),
             ),
-        ));
+        )
+        );
   }
 }

@@ -46,7 +46,7 @@ class EentertainmentsWidgetState extends State<EntertainmentsWidget> {
           itemBuilder: (context, index) {
             final item = entertainmentsWidgetList[index];
             return ListTile(
-              contentPadding: const EdgeInsets.all(0),
+              contentPadding: EdgeInsets.only(top: 16.h),
               horizontalTitleGap: 12.w,
               
               leading: SizedBox(
