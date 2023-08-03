@@ -13,6 +13,7 @@ class ListGuestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: AppColors.whiteColor,
         leading: GestureDetector(
@@ -33,6 +34,7 @@ class ListGuestScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
               height: 24.h,
@@ -42,20 +44,11 @@ class ListGuestScreen extends StatelessWidget {
               children: [
                 Text(
                   '2 гостя',
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontFamily: 'Jost',
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.brownColor),
+                  style: AppStyles().guestStyle
                 ),
                 Text(
                   'По имени ▼',
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontFamily: 'Jost',
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.semiBlackColor,
-                      decoration: TextDecoration.underline),
+                  style:AppStyles().nameListStyle
                 ),
               ],
             ),

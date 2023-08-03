@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/my_home_page',
+        initialRoute: '/list_guest',
         routes: {
           '/my_home_page': (context) => const MyHomePageScreen(),
           '/list_guest':(context) => const ListGuestScreen(), 

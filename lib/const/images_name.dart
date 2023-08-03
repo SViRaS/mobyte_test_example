@@ -13,4 +13,6 @@ class AppImages {
 
   static const noneAvatar = 'assets/images/none_avatar.png';
   static const mariaAvatar = 'assets/images/maria_avatar.png';
+
+  static const calendar = 'assets/icons/calendar.svg';
 }
