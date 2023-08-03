@@ -5,8 +5,6 @@ import 'package:mobyte_first_example/const/images_name.dart';
 import 'package:mobyte_first_example/const/styles.dart';
 import 'package:mobyte_first_example/models/entertainments_item.dart';
 
-import '../const/colors.dart';
-
 class EntertainmentsWidget extends StatefulWidget {
   const EntertainmentsWidget({super.key});
 
@@ -48,17 +46,18 @@ class EentertainmentsWidgetState extends State<EntertainmentsWidget> {
             return ListTile(
               contentPadding: EdgeInsets.only(top: 16.h),
               horizontalTitleGap: 12.w,
-              
               leading: SizedBox(
                 width: 42.r,
                 height: 42.r,
-                child: Image.asset(item.imageName, fit: BoxFit.fill,),
+                child: Image.asset(
+                  item.imageName,
+                  fit: BoxFit.fill,
+                ),
               ),
               title: Text(
                 item.title,
                 style: AppStyles().gameCategoryStyle,
               ),
-              
               subtitle: Text(
                 item.subTitle,
                 style: AppStyles().gameStyle,

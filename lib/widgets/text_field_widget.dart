@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:mobyte_first_example/const/styles.dart';
 
 import '../const/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  
   final String label;
   final Icon? icon;
   // ignore: prefer_typing_uninitialized_variables
@@ -17,15 +14,14 @@ class TextFieldWidget extends StatelessWidget {
     super.key,
     required this.label,
     required this.controller,
-     this.icon,
+    this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
       height: 58.h,
-      child: TextFormField(  
+      child: TextFormField(
         controller: controller,
         style: AppStyles().textTextFieldStyle,
         decoration: InputDecoration(
@@ -42,10 +38,8 @@ class TextFieldWidget extends StatelessWidget {
             ),
             focusColor: AppColors.brownColor,
             labelStyle: AppStyles().labelTextFieldStyle,
-            
             focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.transparent, width: 0)
-            ),
+                borderSide: BorderSide(color: Colors.transparent, width: 0)),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(4.r)),
                 borderSide:

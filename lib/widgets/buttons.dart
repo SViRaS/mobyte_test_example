@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobyte_first_example/const/images_name.dart';
-import 'package:mobyte_first_example/widgets/text_field_widget.dart';
 
 import '../const/colors.dart';
 import '../const/styles.dart';
-import 'guest_widgets.dart';
 
 class OrangeButton extends StatelessWidget {
   final String text;

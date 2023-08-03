@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/const/colors.dart';
 import 'package:mobyte_first_example/const/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 

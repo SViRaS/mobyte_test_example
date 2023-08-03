@@ -1,11 +1,12 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unused_field
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mobyte_first_example/const/colors.dart';
-import 'package:mobyte_first_example/const/images_name.dart';
 import 'package:mobyte_first_example/const/styles.dart';
+import 'package:mobyte_first_example/data/database.dart';
 import 'package:mobyte_first_example/widgets/buttons.dart';
 import 'package:mobyte_first_example/widgets/guest_widgets.dart';
 
@@ -19,20 +20,34 @@ class ListGuestScreen extends StatefulWidget {
 }
 
 class _ListGuestScreenState extends State<ListGuestScreen> {
+
+  final _myBox = Hive.box('mybox');
+
+  TodoDataBase db = TodoDataBase();
+
+  @override
+  void initState() {
+    
+    if (_myBox.get('KEY') == null) {
+      db.createInitialData();
+    } else {
+      db.loadData();
+    }
+
+    super.initState();
+  }
+
   final _controller_name = TextEditingController();
   final _controller_surname = TextEditingController();
   final _controller_date_birthday = TextEditingController();
   final _controller_phone = TextEditingController();
   final _controller_job = TextEditingController();
 
-  List guestList = [
-    ['Иван', 'Иванов', '19 лет', 'Студент', ''],
-    ['Марья', 'Морская', '23 года', 'Дизайнер', ''],
-  ];
+  
 
   void saveNewGuest() {
     setState(() {
-      guestList.add([
+      db.guestList.add([
         _controller_name.text,
         _controller_surname.text,
         _controller_date_birthday.text,
@@ -46,6 +61,7 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
       _controller_job.clear();
     });
     Navigator.of(context).pop();
+    db.updateDataBase();
   }
 
   void createNewGuest() {
@@ -110,14 +126,14 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
             ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: guestList.length,
+                itemCount: db.guestList.length,
                 itemBuilder: (context, index) {
                   return GuestWidget(
-                    name: guestList[index][0],
-                    surname: guestList[index][1],
-                    years: guestList[index][2],
-                    activity: guestList[index][3],
-                    phone: guestList[index][4],
+                    name: db.guestList[index][0],
+                    surname: db.guestList[index][1],
+                    years: db.guestList[index][2],
+                    activity: db.guestList[index][3],
+                    phone: db.guestList[index][4],
                   );
                 })
           ],

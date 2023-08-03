@@ -49,9 +49,7 @@ class _MapWidgetState extends State<MapWidget> {
           // mapControllerCompleter.complete(controller);
           if (!mapControllerCompleter.isCompleted) {
             mapControllerCompleter.complete(controller);
-          } else {
-            
-          }
+          } else {}
         },
       ),
     );

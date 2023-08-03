@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/const/styles.dart';
-import '../const/colors.dart';
 import '../const/images_name.dart';
 import '../models/menu_item.dart';
 
@@ -31,11 +30,11 @@ class _MenuListState extends State<MenuWidget> {
           child: GridView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            itemCount: _active ? menuWidgetList.length : 2,            
+            itemCount: _active ? menuWidgetList.length : 2,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               mainAxisSpacing: 16.h,
               crossAxisSpacing: 32.w,
-              childAspectRatio: 140/ 154,
+              childAspectRatio: 140 / 154,
               crossAxisCount: 2,
             ),
             itemBuilder: (context, index) {

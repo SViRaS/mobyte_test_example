@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobyte_first_example/const/styles.dart';
-
-import '../const/colors.dart';
 
 class TextWidget extends StatelessWidget {
   const TextWidget({super.key});
@@ -29,13 +26,9 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: AppStyles().mainTextStyle
-    );
+    return Text(text, style: AppStyles().mainTextStyle);
   }
 }
-
 
 class MapText extends StatelessWidget {
   const MapText({super.key});
@@ -43,10 +36,8 @@ class MapText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        'Центральная ул., 84, хутор Седых',
-        style: AppStyles().placeStyle
-      ),
+      child: Text('Центральная ул., 84, хутор Седых',
+          style: AppStyles().placeStyle),
     );
   }
 }
