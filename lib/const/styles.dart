@@ -126,6 +126,14 @@ class AppStyles {
       color: AppColors.brownColor,
       );
 
+   final guestTilePhone = TextStyle(
+      fontFamily: 'Jost',
+      fontWeight: FontWeight.w400,
+      fontSize: 14.sp,
+      height: 20.23 / 14,
+      color: AppColors.brownColor,
+      );
+
   final labelTextFieldStyle = TextStyle(
       fontFamily: 'Jost',
       fontWeight: FontWeight.w400,

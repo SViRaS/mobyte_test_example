@@ -6,6 +6,7 @@ import 'package:mobyte_first_example/widgets/text_field_widget.dart';
 
 import '../const/colors.dart';
 import '../const/styles.dart';
+import 'guest_widgets.dart';
 
 class OrangeButton extends StatelessWidget {
   final String text;
@@ -35,83 +36,17 @@ class OrangeButton extends StatelessWidget {
 }
 
 class GreenButton extends StatelessWidget {
-  const GreenButton({super.key});
+
+  final VoidCallback onPressed;
+  const GreenButton({
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        showModalBottomSheet(
-          isScrollControlled: true,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.r),
-          ),
-          context: context,
-          builder: (context) {
-            return Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: SizedBox(
-                height: 633.h,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 12.h,
-                      ),
-                      SvgPicture.asset(
-                        'assets/icons/indicator.svg',
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      ),
-                      const TextFieldWidget(
-                        label: 'Имя',
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      const TextFieldWidget(
-                        label: 'Фамилия',
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      TextFieldWidget(
-                        label: 'Дата рождения',
-                        icon: Icon(
-                          Icons.calendar_today_outlined,
-                          size: 24.r,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      const TextFieldWidget(
-                        label: 'Телефон',
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).viewInsets.bottom),
-                        child: const TextFieldWidget(
-                          label: 'Профессия',
-                        ),
-                      ),
-                      SizedBox(height: 24.h,),
-                      CustomGreenButton()
-
-                    ],
-                  ),
-                ),
-              ),
-            );
-          },
-        );
-      },
+      onTap: onPressed,
       child: Container(
         width: 84.w,
         height: 84.h,
@@ -133,21 +68,29 @@ class GreenButton extends StatelessWidget {
 
 
 class CustomGreenButton extends StatelessWidget {
-  const CustomGreenButton({super.key});
+  final VoidCallback onPressed;
+  const CustomGreenButton({
+    super.key,
+    required this.onPressed,
+    });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 156.w,
-      height: 50.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15.r)),
-        color: AppColors.greenColor,
-        
-      ),
-      child: Center(
-        child: Text('Записаться', style: AppStyles().greenButtonTextStyle,),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: 156.w,
+        height: 50.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15.r)),
+          color: AppColors.greenColor,
+          
+        ),
+        child: Center(
+          child: Text('Записаться', style: AppStyles().greenButtonTextStyle,),
+        ),
       ),
     );
   }
 }
+

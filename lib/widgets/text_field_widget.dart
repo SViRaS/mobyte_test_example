@@ -8,19 +8,25 @@ import 'package:mobyte_first_example/const/styles.dart';
 import '../const/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
+  
   final String label;
   final Icon? icon;
+  // ignore: prefer_typing_uninitialized_variables
+  final controller;
   const TextFieldWidget({
     super.key,
     required this.label,
+    required this.controller,
      this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
+    
     return SizedBox(
       height: 58.h,
       child: TextFormField(  
+        controller: controller,
         style: AppStyles().textTextFieldStyle,
         decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.auto,
