@@ -10,15 +10,12 @@ import '../../../../resources/colors.dart';
 class WishWidget extends StatefulWidget {
   final String giftName;
   final String urlName;
-  // final Function(bool?)? onChanged;
   final VoidCallback onChanged;
-  // final bool onTaskCompleted;
   final Function(BuildContext)? onDelete;
   const WishWidget({
     required this.giftName,
     required this.urlName,
     required this.onChanged,
-    // required this.onTaskCompleted,
     required this.onDelete,
     super.key});
 
@@ -69,7 +66,7 @@ class _WishWidgetState extends State<WishWidget> {
               color: taskCompleted ? AppColors.brownColor : AppColors.greyColor
             ),
            ),
-         )
+         ),
           
         ],),
       ),

@@ -37,6 +37,11 @@ class _ListGuestScreenState extends State<WishListScreen> {
   final _controller_giftName = TextEditingController();
   final _controller_urlName = TextEditingController();
 
+  final _controller_updateText = TextEditingController();
+
+
+  
+
   void saveNewGift() {
     setState(() {
       db.wishList.add([
@@ -65,6 +70,49 @@ class _ListGuestScreenState extends State<WishListScreen> {
           );
         });
   }
+      void editData(int index) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Update Data'),
+              content: TextFormField(
+                controller: _controller_updateText,
+                autofocus: true,
+                enableSuggestions: true,
+                decoration: InputDecoration(
+                    hintText: _myBox.getAt(index),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.black),
+                      borderRadius: BorderRadius.circular(10),
+                    )),
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Cancel')),
+                TextButton(
+                    onPressed: () {
+                      if (_controller_updateText.text != '') {
+                        setState(() {
+                          _myBox.putAt(index, _controller_updateText.text);
+                        });
+                        Navigator.pop(context);
+                        _controller_updateText.clear();
+                      } else {
+                        Navigator.pop(context);
+                      }
+                    },
+                    child: const Text('Update'))
+              ],
+            );
+          });
+    }
+
+  
+
 
   void onDeleteGift(int index) {
     setState(() {
@@ -73,12 +121,6 @@ class _ListGuestScreenState extends State<WishListScreen> {
     db.updateDataBase();
   }
   
-  void checkBoxChanged(bool? value, int index) {
-    setState(() {
-       db.wishList[index][2] = !db.wishList[index][2]; 
-    });
-    db.updateDataBase();
-  }
   
   void changeColorBox(int index) {
     setState(() {
