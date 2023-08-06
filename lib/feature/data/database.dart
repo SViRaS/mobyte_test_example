@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:mobyte_first_example/const/images_name.dart';
 
 class TodoDataBase {
  
@@ -9,8 +10,8 @@ class TodoDataBase {
   
   void createInitialData() {
     guestList = [
-      ['Иван', 'Иванов', '19 лет', 'Студент', ''],
-      ['Марья', 'Морская', '23 года', 'Дизайнер', ''],
+      [AppImages.noneAvatar, 'Иван', 'Иванов', '19 лет', 'Студент', ''],
+      [AppImages.mariaAvatar, 'Марья', 'Морская', '23 года', 'Дизайнер', ''],
     ];
   }
 
