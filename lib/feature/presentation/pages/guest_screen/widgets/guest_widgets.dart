@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:mobyte_first_example/const/styles.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
 
 class GuestWidget extends StatelessWidget {
   final String name;

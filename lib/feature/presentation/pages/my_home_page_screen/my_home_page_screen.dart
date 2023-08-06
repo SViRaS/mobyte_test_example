@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/widgets/buttons.dart';
-import 'package:mobyte_first_example/widgets/map.dart';
-import 'package:mobyte_first_example/widgets/slider_carousel.dart';
-import 'package:mobyte_first_example/widgets/text.dart';
-import '../../widgets/entertainments_widget.dart';
-import '../../widgets/menu_widget.dart';
-import '../../widgets/url_text.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/my_home_page_screen/widgets/buttons.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/my_home_page_screen/widgets/map.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/my_home_page_screen/widgets/slider_carousel.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/my_home_page_screen/widgets/text.dart';
+import 'widgets/entertainments_widget.dart';
+import 'widgets/menu_widget.dart';
+import 'widgets/url_text.dart';
 
 class MyHomePageScreen extends StatefulWidget {
   const MyHomePageScreen({super.key});
@@ -20,8 +20,8 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-          child: SingleChildScrollView(
-              child: Column(
+      child: SingleChildScrollView(
+        child: Column(
           children: [
             const SliderCarousel(),
             SizedBox(height: 16.h),
@@ -31,49 +31,61 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                 children: [
                   const TextWidget(),
                   SizedBox(height: 16.h),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      OrangeButton(text: 'Список гостей', nameRoute: '/list_guest',),
-                      OrangeButton(text: 'Вишлист', ),
+                    children: [
+                      OrangeButton(
+                        text: 'Список гостей',
+                        nameRoute: '/list_guest',
+                      ),
+                      OrangeButton(
+                        text: 'Вишлист',
+                      ),
                     ],
                   ),
                   SizedBox(height: 32.h),
                   const CustomText(
                     text: 'Меню',
                   ),
-                   SizedBox(height: 16.h,),
+                  SizedBox(
+                    height: 16.h,
+                  ),
                   const MenuWidget(),
-                  
                   SizedBox(height: 24.h),
-                   const CustomText(
+                  const CustomText(
                     text: 'Развлечения',
                   ),
-                  SizedBox(height: 16.h,),
-                   const EntertainmentsWidget(),
-                 
-                  SizedBox(height: 16.h,),
-                   const CustomText(
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  const EntertainmentsWidget(),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  const CustomText(
                     text: 'Место',
                   ),
-                  SizedBox(height: 8.h,),
+                  SizedBox(
+                    height: 8.h,
+                  ),
                   const MapWidget(),
-                  SizedBox(height: 4.h,),
+                  SizedBox(
+                    height: 4.h,
+                  ),
                   const MapText(),
                   SizedBox(
                     height: 12.h,
                   ),
                   const UrlLauncherText(),
-                  SizedBox(height: 10.h,),
-                  
+                  SizedBox(
+                    height: 10.h,
+                  ),
                 ],
               ),
             ),
-            
           ],
-              ),
-            ),
-        )
-        );
+        ),
+      ),
+    ));
   }
 }

@@ -1,4 +1,4 @@
-import 'package:mobyte_first_example/services/app_lat_long.dart';
+import 'package:mobyte_first_example/feature/services/app_lat_long.dart';
 
 abstract class AppLocation {
   Future<AppLatLong> getCurrentLocation();

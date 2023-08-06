@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/const/styles.dart';
-import '../const/images_name.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
+import '../../../../resources/images_name.dart';
 import '../models/menu_item.dart';
 
 class MenuWidget extends StatefulWidget {

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/const/styles.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
 
-import '../const/colors.dart';
+import '../../../../resources/colors.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String label;

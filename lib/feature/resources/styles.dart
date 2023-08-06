@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/const/colors.dart';
+import 'package:mobyte_first_example/feature/resources/colors.dart';
 
 class AppStyles {
   // ignore: non_constant_identifier_names

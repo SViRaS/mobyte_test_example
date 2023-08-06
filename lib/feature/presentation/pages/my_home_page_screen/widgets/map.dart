@@ -3,11 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mobyte_first_example/services/app_lat_long.dart';
+import 'package:mobyte_first_example/feature/services/app_lat_long.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
-import '../const/colors.dart';
-import '../services/location_service.dart';
+import '../../../../resources/colors.dart';
+import '../../../../services/location_service.dart';
 
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key});

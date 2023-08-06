@@ -1,9 +1,10 @@
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobyte_first_example/widgets/buttons.dart';
-import 'package:mobyte_first_example/widgets/text_field_widget.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/buttons.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/text_field_widget.dart';
 
 class BottomSheetBody extends StatelessWidget {
   final controller_name;
@@ -81,7 +82,9 @@ class BottomSheetBody extends StatelessWidget {
               SizedBox(
                 height: 24.h,
               ),
-               CustomGreenButton(onPressed: onSave,)
+               CustomGreenButton(
+                onPressed: onSave,
+                ),
             ],
           ),
         ),

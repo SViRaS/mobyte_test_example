@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobyte_first_example/const/images_name.dart';
-import 'package:mobyte_first_example/const/styles.dart';
-import 'package:mobyte_first_example/models/entertainments_item.dart';
+import 'package:mobyte_first_example/feature/resources/images_name.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/my_home_page_screen/models/entertainments_item.dart';
 
 class EntertainmentsWidget extends StatefulWidget {
   const EntertainmentsWidget({super.key});

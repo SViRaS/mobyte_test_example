@@ -7,14 +7,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mobyte_first_example/const/colors.dart';
-import 'package:mobyte_first_example/const/images_name.dart';
-import 'package:mobyte_first_example/const/styles.dart';
-import 'package:mobyte_first_example/data/database.dart';
-import 'package:mobyte_first_example/widgets/buttons.dart';
-import 'package:mobyte_first_example/widgets/guest_widgets.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/buttons.dart';
+import 'package:mobyte_first_example/feature/resources/colors.dart';
+import 'package:mobyte_first_example/feature/resources/images_name.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
+import 'package:mobyte_first_example/feature/data/database.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/guest_widgets.dart';
 
-import '../../widgets/bottom_sheet_body.dart';
+import 'widgets/bottom_sheet_body.dart';
 
 class ListGuestScreen extends StatefulWidget {
   const ListGuestScreen({super.key});
@@ -97,7 +97,7 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
   final image = await ImagePicker().pickImage(source: ImageSource.gallery);
   setState(() {
     if(image == null) return;
-    _selectedImage = File(image!.path);
+    _selectedImage = File(image.path);
   });
   }
    
@@ -162,32 +162,12 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
                     onTap: () {
                       _pickImageFromGallery();
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 64.r,
                       width: 64.r,
-                      
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,                  
-                      ),
                       child: _selectedImage != null ? ClipOval(
                         child: Image.file(_selectedImage!, fit: BoxFit.cover,)) : Image.asset(AppImages.noneAvatar),) ,
-                    ),
-                  
-                  // _selectedImage != null ? SizedBox(
-                  //   height: 64.r,
-                  //   width: 64.r,
-                  //   child: Image.file(_selectedImage!, fit: BoxFit.fill,)) : const Text('pick image'),
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     _pickImageFromGallery();
-                  //   },
-                  //   child: Container(
-                  //     width: 100,
-                  //     height: 100,
-                  //     color: AppColors.greenColor,
-                  //   ),
-                  // )
-                  
+                    ),                  
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobyte_first_example/const/styles.dart';
+import 'package:mobyte_first_example/feature/resources/styles.dart';
 
 class TextWidget extends StatelessWidget {
   const TextWidget({super.key});
