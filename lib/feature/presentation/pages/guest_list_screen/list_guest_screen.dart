@@ -6,13 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/buttons.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_list_screen/widgets/buttons.dart';
 import 'package:mobyte_first_example/feature/resources/colors.dart';
-import 'package:mobyte_first_example/feature/resources/images_name.dart';
 import 'package:mobyte_first_example/feature/resources/styles.dart';
-import 'package:mobyte_first_example/feature/data/database.dart';
-import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/guest_widgets.dart';
+import 'package:mobyte_first_example/feature/data/database_guest_list.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_list_screen/widgets/guest_widgets.dart';
 
 import 'widgets/bottom_sheet_body.dart';
 
@@ -24,16 +22,15 @@ class ListGuestScreen extends StatefulWidget {
 }
 
 class _ListGuestScreenState extends State<ListGuestScreen> {
-
-  File ? _selectedImage;
+  File? _selectedImage;
 
   final _myBox = Hive.box('mybox');
 
-  TodoDataBase db = TodoDataBase();
+  TodoDataBaseGuestList db = TodoDataBaseGuestList();
 
   @override
   void initState() {
-    if (_myBox.get('KEY') == null) {
+    if (_myBox.get('GUESTKEY') == null) {
       db.createInitialData();
     } else {
       db.loadData();
@@ -75,7 +72,7 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
         ),
         context: context,
         builder: (context) {
-          return BottomSheetBody(
+          return BottomSheetGuestBody(
             controller_name: _controller_name,
             controller_surname: _controller_surname,
             controller_date_birthday: _controller_date_birthday,
@@ -88,19 +85,12 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
 
   void onDeleteGuest(int index) {
     setState(() {
-       db.guestList.removeAt(index);
+      db.guestList.removeAt(index);
     });
-   
+    db.updateDataBase();
   }
-  
-  Future _pickImageFromGallery() async {
-  final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-  setState(() {
-    if(image == null) return;
-    _selectedImage = File(image.path);
-  });
-  }
-   
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -149,25 +139,14 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
                   itemBuilder: (context, index) {
                     return GuestWidget(
                       onDelete: (context) => onDeleteGuest(index),
-                      avatarName: db.guestList[index][0],
-                      name: db.guestList[index][1],
-                      surname: db.guestList[index][2],
-                      years: db.guestList[index][3],
-                      activity: db.guestList[index][4],
-                      phone: db.guestList[index][5],
-                    );
-                  }),
-                  SizedBox(height: 12.h,),
-                  GestureDetector(
-                    onTap: () {
-                      _pickImageFromGallery();
-                    },
-                    child: SizedBox(
-                      height: 64.r,
-                      width: 64.r,
-                      child: _selectedImage != null ? ClipOval(
-                        child: Image.file(_selectedImage!, fit: BoxFit.cover,)) : Image.asset(AppImages.noneAvatar),) ,
-                    ),                  
+                      name: db.guestList[index][0],
+                      surname: db.guestList[index][1],
+                      years: db.guestList[index][2],
+                      activity: db.guestList[index][3],
+                      phone: db.guestList[index][4],
+                 );
+                }
+              ),
             ],
           ),
         ),
@@ -175,3 +154,5 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
     );
   }
 }
+
+

@@ -10,7 +10,7 @@ class BirthdayApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/my_home_page',
+        initialRoute: '/wish_list_page',
         routes: routes,
       ),
     );

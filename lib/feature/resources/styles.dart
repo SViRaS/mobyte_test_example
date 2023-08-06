@@ -157,4 +157,21 @@ class AppStyles {
       height: 23.12 / 16,
       color: AppColors.whiteColor,
       );
+
+  final nameGiftStyle = TextStyle(
+      fontFamily: 'Jost',
+      fontWeight: FontWeight.w500,
+      fontSize: 14.sp,
+      height: 20.23 / 14,
+      color: AppColors.semiBlackColor,
+      );
+
+  final urlGiftStyle = TextStyle(
+      fontFamily: 'Jost',
+      fontWeight: FontWeight.w400,
+      fontSize: 14.sp,
+      height: 20.23 / 14,
+      color: AppColors.brownColor,
+      decoration: TextDecoration.underline
+      );
 }

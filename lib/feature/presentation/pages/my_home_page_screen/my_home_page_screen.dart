@@ -36,10 +36,11 @@ class _MyHomePageScreenState extends State<MyHomePageScreen> {
                     children: [
                       OrangeButton(
                         text: 'Список гостей',
-                        nameRoute: '/list_guest',
+                        nameRoute: '/guest_list_page',
                       ),
                       OrangeButton(
                         text: 'Вишлист',
+                        nameRoute: '/wish_list_page',
                       ),
                     ],
                   ),

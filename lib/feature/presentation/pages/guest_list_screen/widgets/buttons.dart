@@ -6,7 +6,6 @@ import '../../../../resources/colors.dart';
 import '../../../../resources/styles.dart';
 
 class GreenButton extends StatelessWidget {
-
   final VoidCallback onPressed;
   const GreenButton({
     required this.onPressed,
@@ -36,13 +35,14 @@ class GreenButton extends StatelessWidget {
   }
 }
 
-
 class CustomGreenButton extends StatelessWidget {
+  final String text;
   final VoidCallback onPressed;
   const CustomGreenButton({
     super.key,
     required this.onPressed,
-    });
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +54,12 @@ class CustomGreenButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(15.r)),
           color: AppColors.greenColor,
-          
         ),
         child: Center(
-          child: Text('Записаться', style: AppStyles().greenButtonTextStyle,),
+          child: Text(
+            text,
+            style: AppStyles().greenButtonTextStyle,
+          ),
         ),
       ),
     );

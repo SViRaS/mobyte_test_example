@@ -3,17 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/buttons.dart';
-import 'package:mobyte_first_example/feature/presentation/pages/guest_screen/widgets/text_field_widget.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_list_screen/widgets/buttons.dart';
+import 'package:mobyte_first_example/feature/presentation/pages/guest_list_screen/widgets/text_field_widget.dart';
 
-class BottomSheetBody extends StatelessWidget {
+class BottomSheetGuestBody extends StatelessWidget {
   final controller_name;
   final controller_surname;
   final controller_date_birthday;
   final controller_phone;
   final controller_job;
   final VoidCallback onSave;
-  const BottomSheetBody({
+  const BottomSheetGuestBody({
       required this.controller_name,
       required this.controller_surname,
       required this.controller_date_birthday,
@@ -71,6 +71,7 @@ class BottomSheetBody extends StatelessWidget {
               TextFieldWidget(
                 label: 'Телефон',
                 controller: controller_phone,
+                
               ),
               SizedBox(
                 height: 8.h,
@@ -84,6 +85,7 @@ class BottomSheetBody extends StatelessWidget {
               ),
                CustomGreenButton(
                 onPressed: onSave,
+                text: 'Записаться',
                 ),
             ],
           ),
