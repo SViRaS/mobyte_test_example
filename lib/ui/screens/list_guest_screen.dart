@@ -20,14 +20,12 @@ class ListGuestScreen extends StatefulWidget {
 }
 
 class _ListGuestScreenState extends State<ListGuestScreen> {
-
   final _myBox = Hive.box('mybox');
 
   TodoDataBase db = TodoDataBase();
 
   @override
   void initState() {
-    
     if (_myBox.get('KEY') == null) {
       db.createInitialData();
     } else {
@@ -43,22 +41,20 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
   final _controller_phone = TextEditingController();
   final _controller_job = TextEditingController();
 
-  
-
   void saveNewGuest() {
     setState(() {
       db.guestList.add([
         _controller_name.text,
         _controller_surname.text,
         _controller_date_birthday.text,
-        _controller_phone.text,
         _controller_job.text,
+        _controller_phone.text,
       ]);
       _controller_name.clear();
       _controller_surname.clear();
       _controller_date_birthday.clear();
-      _controller_phone.clear();
       _controller_job.clear();
+      _controller_phone.clear();
     });
     Navigator.of(context).pop();
     db.updateDataBase();
@@ -76,11 +72,18 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
             controller_name: _controller_name,
             controller_surname: _controller_surname,
             controller_date_birthday: _controller_date_birthday,
-            controller_phone: _controller_phone,
             controller_job: _controller_job,
+            controller_phone: _controller_phone,
             onSave: saveNewGuest,
           );
         });
+  }
+
+  void onDeleteGuest(int index) {
+    setState(() {
+       db.guestList.removeAt(index);
+    });
+   
   }
 
   @override
@@ -106,37 +109,40 @@ class _ListGuestScreenState extends State<ListGuestScreen> {
       floatingActionButton: GreenButton(
         onPressed: createNewGuest,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 24.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('2 гостя', style: AppStyles().guestStyle),
-                Text('По имени ▼', style: AppStyles().nameListStyle),
-              ],
-            ),
-            SizedBox(
-              height: 24.h,
-            ),
-            ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: db.guestList.length,
-                itemBuilder: (context, index) {
-                  return GuestWidget(
-                    name: db.guestList[index][0],
-                    surname: db.guestList[index][1],
-                    years: db.guestList[index][2],
-                    activity: db.guestList[index][3],
-                    phone: db.guestList[index][4],
-                  );
-                })
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 24.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('2 гостя', style: AppStyles().guestStyle),
+                  Text('По имени ▼', style: AppStyles().nameListStyle),
+                ],
+              ),
+              SizedBox(
+                height: 24.h,
+              ),
+              ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: db.guestList.length,
+                  itemBuilder: (context, index) {
+                    return GuestWidget(
+                      onDelete: (context) => onDeleteGuest(index),
+                      name: db.guestList[index][0],
+                      surname: db.guestList[index][1],
+                      years: db.guestList[index][2],
+                      activity: db.guestList[index][3],
+                      phone: db.guestList[index][4],
+                    );
+                  })
+            ],
+          ),
         ),
       ),
     );
